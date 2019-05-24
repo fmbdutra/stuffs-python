@@ -45,18 +45,30 @@ driver.find_element(By.CSS_SELECTOR, ".rich-text > ul:nth-child(19) > li:nth-chi
 
 # Disponíveis em: http://kb.mozillazine.org/About:config_Entries
 p = FirefoxProfile()
+
+# Configurações para download
+# p.set_preference("browser.download.manager.showAlertOnComplete", False) ok
+# p.set_preference("browser.download.panel.shown", False) ok
 p.set_preference("browser.shell.checkDefaultBrowser", False)
 p.set_preference("browser.download.folderList", 0)
 p.set_preference("browser.download.manager.showWhenStarting", False)
 p.set_preference("browser.download.manager.alertOnEXEOpen", False)
+# Só downloads PDF
 p.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf")
+# p.set_preference("browser.download.importedFromSqlite", False) ok
 # p.set_preference("pdfjs.disabled", True) ok
-# p.set_preference("browser.download.panel.shown", False) ok
 # p.set_preference("pdfjs.showPreviousViewOnLoad", False) ok
 # p.set_preference("pdfjs.previousHandler.preferredAction", 4) ok
 # p.set_preference("pdfjs.previousHandler.alwaysAskBeforeHandling", True)
 p.set_preference("plugin.disable_full_page_plugin_for_types", "application/pdf")
-# p.set_preference("browser.download.importedFromSqlite", False) ok
 p.set_preference("pdfjs.migrationVersion", 2)
-# p.set_preference("browser.download.manager.showAlertOnComplete", False) ok
-p.update_preferences()
+
+#Configurações Câmera e audio
+# p.set_preference("media.webspeech.recognition.enable", True)
+p.set_preference("camera.control.face_detection.enabled", True)
+p.set_preference("dom.imagecapture.enabled", True)
+
+p.update_preferences() #Provavelmente aplica
+
+
+driver = webdriver.Firefox(firefox_binary="caminho/firefox36", firefox_profile=pp)
