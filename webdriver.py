@@ -68,6 +68,12 @@ p.set_preference("pdfjs.migrationVersion", 2)
 p.set_preference("camera.control.face_detection.enabled", True)
 p.set_preference("dom.imagecapture.enabled", True)
 
+  # Limpa cache e cookies
+  p.set_preference('browser.cache.disk.enable', False)
+  p.set_preference('browser.cache.memory.enable', False)
+  p.set_preference('browser.cache.offline.enable', False)
+  p.set_preference('network.cookie.cookieBehavior', 2)
+
 p.update_preferences() #Provavelmente aplica
 
 
