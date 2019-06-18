@@ -1,0 +1,15 @@
+desktop = os.path.join(os.environ['HOMEPATH'], 'Desktop')
+
+pdf_arquivo = desktop+'\\arquivo.pdf'
+
+if os.path.isfile(pdf_arquivo):
+    #Se arquivo está em certo lugar, retorna verdadeiro
+    
+caminho_completo = os.path.join('caminho_pasta', 'so_nome_do_arquivo.pdf')
+
+os.rename(r'caminho_arquivo\velho_nome.pdf', r'caminho_arquivo\novo_nome.pdf')
+
+if os.path.exists("caminho_arquivo\\demofile.txt"):
+  os.remove("caminho_arquivo\\demofile.txt")
+else:
+  print("Arquivo não encontrado")
